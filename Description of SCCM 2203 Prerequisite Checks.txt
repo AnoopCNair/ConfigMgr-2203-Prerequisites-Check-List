@@ -1,0 +1,181 @@
+Support for Windows Server 2012 and 2012 R2 ends on October 9, 2023. Plan to upgrade your site servers to a supported operating system. For more information, see https://go.microsoft.com/fwlink/?linkid=2186091.
+
+Configuration Manager requires at least .NET version 4.6.2, but recommends the latest version. A later version of Configuration Manager will require .NET version 4.8. To minimize disruption, before you run Configuration Manager setup, update .NET on the site servers and site systems and restart them. Review the ConfigMgrPrereq.log to determine systems that need to be updated. For more information, see https://go.microsoft.com/fwlink/?linkid=2165437.
+
+Configuration Manager requires at least .NET version 4.6.2, but recommends the latest version. A later version of Configuration Manager will require .NET version 4.8. To minimize disruption, before you run Configuration Manager setup, update .NET on the site servers and site systems and restart them. Review the ConfigMgrPrereq.log to determine systems that need to be updated. For more information, see https://go.microsoft.com/fwlink/?linkid=2165437.
+
+Remove the certificate registration point site system role and all policies for company resource access features. These features are no longer supported as of March 2022. Company resource access includes email, certificate, VPN, Wi-Fi, and Windows Hello for Business profiles. See https://go.microsoft.com/fwlink/?linkid=2186198 for more details.
+
+The Asset Intelligence feature has been deprecated and will be retired in a future release. Remove the Asset Intelligence sync point role. For more information, see https://aka.ms/removeAIsyncpointrole.
+
+There are site system roles installed for deprecated features that will be removed in a future release. Remove the enrollment point, enrollment point proxy, and device management point roles. For more information, see https://aka.ms/removeMDMroles.
+
+The option to deploy a cloud management gateway (CMG) as a cloud service (classic) is deprecated. All CMG deployments should use a virtual machine scale set. For more information see: https://go.microsoft.com/fwlink/?linkid=2187166. 
+
+Verifies that the logged on user account has administrative rights on the site system computer.
+
+Verifies that the user running Setup has local administrator rights on the central administration site server.
+
+Checks if the user account running Setup has sysadmin rights on the SQL Server for the CAS.
+
+Check Server Service (LanmanServer) is running.
+
+Verifies that the computer specified for installation is a member of a Windows domain.
+
+Verify that the Active Directory domain functional level is Windows Server 2003 or later.
+
+Checks that the site server computer has sufficient available disk space to install the site server.
+
+Checks if a system restart is pending.
+
+Checking unsupported Read-Only Domain Controller on site server.
+
+Checking Site Server FQDN Length.
+
+Verifies that the Microsoft Core XML Services (MSXML) version 6.0 or later libraries are installed.
+
+Determines if the Windows Server 2003-based schannel hotfix is installed on the site server.
+
+Verifies that the Microsoft Remote Differential Compression (RDC) library is registered on the computer specified for Configuration Manager site server installation.
+
+Checking Windows Installer Version >= 4.5.
+
+Checks if the target site server computer already has existing Configuration Manager server components installed.
+
+Checks if the Windows Firewall is disabled or if a relevant Windows Firewall exception exists for SQL Server.
+
+Checks if the Windows Firewall is disabled or if a relevant Windows Firewall exception exists for SQL Server.
+
+Check SQL Server service running account.
+
+Check to see if the selected SQL Server instance is already in use by another Configuration Manager site
+
+Verifies that the site server's database collation matches the database collation of its parent site.
+
+Verifies that the Microsoft .NET Framework version 3.5 is installed on Configuration Manager central administration site servers, primary site servers, and secondary site servers.
+
+Checks whether the Windows Deployment Tools component of Windows Assessment and Deployment Kit (ADK) for Windows 10 is installed.
+
+Checks whether the User State Migration Tool (USMT) component of Windows Assessment and Deployment Kit (ADK) for Windows 10 is installed.
+
+Checks if the FQDN provided for the site system uses the primary DNS hostname for the computer.
+
+Checks if the specified site code is already in use by another site in your hierarchy.
+
+Check the parent Central Administration Site has the same version.
+
+Verifies that the SQL Server instance and Configuration Manager site database (if present) are configured to use a supported collation.
+
+Verifies that the site server is processing critical inboxes in a timely fashion, and that inboxes do not contain files older than one day.
+
+Verifies that all distribution points in the site have the latest version of software distribution packages
+
+Verifies that the SQL Server database collation settings of the tempdb database and site database to be upgraded are the same.
+
+Share Name in Package has invalid character: #.
+
+Verifies that SUM is not using any virtual locations for active SUPs.
+
+Verifies that no active source hierarchy is currently configured for migration.
+
+Verifies that all site servers in the hierarchy meet the Configuration Manager minimum version that is required for upgrade.
+
+No Active MP Replica detected
+
+Verifies that the replication status of the parent site is Replication Active (corresponds to status=125).
+
+Checking that the site system role 'Out of band service point' is not deployed.
+
+Checking whether the site system role 'System Health Validator' exists in the hierarchy.
+
+Checking whether there are software updates that are enabled for NAP
+
+Pre-requisite rule to verify database consistency
+
+
+Verifies that the user account running Configuration Manager Setup has been granted sysadmin SQL Server role permissions on the SQL Server instance selected for site database installation. SQL Server sysadmin role permissions are required in order to create the site database and configure necessary database role and login permissions for Configuration Manager sites.
+
+Verifies that the user account running Configuration Manager Setup has been granted sysadmin SQL Server role permissions on the SQL Server instance selected for reference site database installation. SQL Server sysadmin role permissions are required in order to modify the site database.
+
+Verifies that the site server computer account has administrative rights on the SQL Server and management point.
+
+Verifies that the version of Microsoft SQL Server installed on the computer selected to host the site database meets the minimum requirements.
+
+Checking the site SQL Server is not Express Edition.
+
+Checking the site SQL Server Tcp is enabled and set to Static port.
+
+Checks if the SQL Server hosting the Configuration Manager site database is using a case-insensitive collation.
+
+Check that the specified FQDN for the SQL Server computer is valid.
+
+Check target SDK machine is not Windows Cluster Node.
+
+Checks whether the Windows Preinstallation Environment component of Windows Assessment and Deployment Kit (ADK) for Windows 10 is installed.
+
+Checks if SMS Provider machine has same domain as site server.
+
+Checking whether there are custom Client Agent Settings that enable NAP
+
+Checking whether the default Client Agent Settings enable NAP
+
+Checking secondary read state of availability group replicas
+
+Checking failover state of availability group replicas
+
+Checking availability group replicas for instance configuration
+
+Checks if default value is set for SQL Index Create Memory
+
+Checking availability group replicas health state
+
+Starting with version 1702, Configuration Manager does not support SQL Server 2008 R2. https://go.microsoft.com/fwlink/?linkid=841654. This check verifies that the version of Microsoft SQL Server installed on the computer selected to host the site database meets the minimum requirements of SQL Server 2012 with SP2.
+
+Checking availability group replica seeding modes
+
+Starting with version 1702, Configuration Manager does not support Software Update Points on Loadbalancers (NLB/HLB).
+
+Starting with version 1706, Upgrade Assessment Toolkit is no longer supported. https://go.microsoft.com/fwlink/?linkid=841654
+
+Verifies that the computer specified for installation is a member of a Windows domain.
+
+Verifies that the site server operating system meets the minimum requirement for site server installation. https://go.microsoft.com/fwlink/?linkid=841654
+
+Verifies that the site system to be upgraded meets the minimum operating system requirement for site system installation. https://go.microsoft.com/fwlink/?linkid=841654
+
+Checking if HTTP management point is enabled for cloud management gateway
+
+Checks if the specified SQL Server meets the minimum requirements to host an Always On availability group. https://go.microsoft.com/fwlink/?linkid=873403
+
+Verifies if the machine account of the passive site server has access to the setup source files and the directory.
+
+Checks if the max text repl size for the specified SQL Server is configured properly. https://go.microsoft.com/fwlink/?linkid=873403
+
+Checks if there are many pending configuration item policy updates. https://go.microsoft.com/fwlink/?linkid=2006830
+
+Checks if the specified SQL Server meets the minimum requirements for site upgrade.
+
+Verifies that the version of Microsoft SQL Server Native Client installed on the site server meets the minimum requirements to enable TLS 1.2 support. https://go.microsoft.com/fwlink/?linkid=2026746
+
+The site database has a backlog of SQL change tracking data. For more information, see https://go.microsoft.com/fwlink/?linkid=2027576
+
+Determines if supported WSUS version is installed on the site server.
+
+Microsoft Intune Subscription' for hybrid MDM isn't supported. For more information, see https://go.microsoft.com/fwlink/?linkid=2104485.
+
+The Upgrade Readiness solution of Windows Analytics is being retired on January 31, 2020. For more information, see https://go.microsoft.com/fwlink/?linkid=2113657
+
+Microsoft Operations Management Suite (OMS) Connector is deprecated. For more information, see https://go.microsoft.com/fwlink/?linkid=2152931.
+
+HTTPS or Enhanced HTTP are not enabled for client communication. HTTP-only communication is deprecated and support will be removed in a future version of Configuration Manager. Enable a more secure communication method for the site either by enabling HTTPS or Enhanced HTTP. For more information, see https://go.microsoft.com/fwlink/?linkid=2155007.
+
+The support lifecycle for SQL Server 2012 ends on July 12, 2022. Plan to upgrade database servers in your environment, including SQL Server Express at secondary sites. For more information, see https://go.microsoft.com/fwlink/?linkid=2163704.
+
+Configuration Manager requires at least .NET version 4.6.2 for site systems, clients, and the console. To minimize disruption, before you run Configuration Manager setup, update .NET and restart the system. If possible, install the latest version of .NET 4.8. For more information, see https://go.microsoft.com/fwlink/?linkid=2165437.
+
+Configuration Manager requires at least .NET version 4.6.2, but recommends the latest version 4.8. A later version of Configuration Manager will require .NET version 4.8. To minimize disruption, before you run Configuration Manager setup, update .NET and restart the system. For more information, see https://go.microsoft.com/fwlink/?linkid=2165437.
+
+The application catalog website point and application catalog web service point site system roles are unsupported. For more information, see https://go.microsoft.com/fwlink/?linkid=2166027.
+
+
+
